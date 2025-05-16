@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Card with Inline CSS</title>
+    <style>
+      @media (min-width: 769px) {
+        .info-card {
+          flex-direction: row !important;
+        }
+        .info-image {
+          flex: 0 0 40% !important;
+          max-width: 40% !important;
+          height: auto !important;
+        }
+        .info-content {
+          flex: 0 0 60% !important;
+          max-width: 60% !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-title {
+          font-size: 20px !important;
+        }
+
+        .info-content {
+          padding: 15px !important;
+        }
+
+        .info-text {
+          font-size: 14px !important;
+        }
+
+        .info-image {
+          height: 200px !important;
+        }
+      }
+
+      .read-more:hover {
+        text-decoration: underline !important;
+      }
+    </style>
+  </head>
+  <body
+    style="
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    "
+  >
+    <!-- //herosection -->
+    <div
+      class="container"
+      style="max-width: 1200px; margin: 0 auto; padding: 20px"
+    >
+      <div
+        class="event-card"
+        style="
+          display: flex;
+          flex-direction: column;
+          background-color: white;
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        "
+      >
+        <!-- Top section with image gallery -->
+        <div
+          class="image-gallery"
+          style="width: 100%; position: relative; overflow: hidden"
+        >
+          <div
+            class="main-image-container"
+            style="
+              width: 100%;
+              position: relative;
+              overflow: hidden;
+              border-radius: 15px 15px 0 0;
+            "
+          >
+            <img
+              src="/api/placeholder/600/400"
+              alt="Temple"
+              class="main-image"
+              id="mainImage"
+              style="
+                width: 100%;
+                height: auto;
+                max-height: 400px;
+                object-fit: cover;
+              "
+            />
+
+            <div
+              class="carousel-nav"
+              style="
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                transform: translateY(-50%);
+              "
+            >
+              <button
+                class="carousel-btn"
+                id="prevBtn"
+                style="
+                  background-color: rgba(255, 255, 255, 0.5);
+                  border: none;
+                  padding: 10px;
+                  font-size: 20px;
+                  border-radius: 50%;
+                  cursor: pointer;
+                  margin: 0 10px;
+                  width: 40px;
+                  height: 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                ❮
+              </button>
+              <button
+                class="carousel-btn"
+                id="nextBtn"
+                style="
+                  background-color: rgba(255, 255, 255, 0.5);
+                  border: none;
+                  padding: 10px;
+                  font-size: 20px;
+                  border-radius: 50%;
+                  cursor: pointer;
+                  margin: 0 10px;
+                  width: 40px;
+                  height: 40px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                ❯
+              </button>
+            </div>
+          </div>
+          <div
+            class="small-images"
+            style="
+              display: none;
+              justify-content: space-around;
+              padding: 10px 0;
+              background-color: #48134d;
+            "
+          >
+            <img
+              src="./images/1big.webp"
+              alt="Temple thumbnail 1"
+              class="small-image"
+              style="
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid transparent;
+              "
+            />
+            <img
+              src="./images/2big.webp"
+              alt="Temple thumbnail 2"
+              class="small-image"
+              style="
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid transparent;
+              "
+            />
+            <img
+              src="./images/3big.webp"
+              alt="Temple thumbnail 3"
+              class="small-image"
+              style="
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid transparent;
+              "
+            />
+            <img
+              src="./images/4big.webp"
+              alt="Temple thumbnail 4"
+              class="small-image"
+              style="
+                width: 80px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 5px;
+                cursor: pointer;
+                border: 2px solid transparent;
+              "
+            />
+          </div>
+        </div>
+
+        <!-- Bottom section with event details -->
+        <div
+          class="event-details"
+          style="
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <div
+            class="header-banner"
+            style="
+              background: linear-gradient(
+                to right,
+                #ffd700,
+                #ffd700,
+                transparent
+              );
+              color: #333;
+              padding: 10px 15px;
+              font-weight: bold;
+              border-radius: 5px 5px 0 0;
+              margin-bottom: 15px;
+            "
+          >
+            Few Slots Left!
+          </div>
+
+          <h1
+            class="event-title"
+            style="
+              font-size: 24px;
+              font-weight: bold;
+              color: #333;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            "
+          >
+            Nazar Dosha Mahasuraksha Hanuman Jhada Aur Mahayagya
+          </h1>
+
+          <p
+            class="event-subtitle"
+            style="color: #ff3e83; font-size: 18px; margin-bottom: 15px"
+          >
+            To overcome the evil eye and serious illness
+          </p>
+
+          <div
+            class="temple-info"
+            style="
+              display: flex;
+              align-items: center;
+              margin-bottom: 15px;
+              font-size: 16px;
+              color: #666;
+            "
+          >
+            <span class="temple-icon" style="margin-right: 10px; color: #888"
+              >🛕</span
+            >
+            <span
+              >Narasimha Hanuman Temple (Pathar Wale Baba), Chandni Chowk,
+              Delhi</span
+            >
+          </div>
+
+          <div
+            class="date-info"
+            style="
+              display: flex;
+              align-items: center;
+              margin-bottom: 15px;
+              font-size: 16px;
+              color: #666;
+            "
+          >
+            <span class="temple-icon" style="margin-right: 10px; color: #888"
+              >📅</span
+            >
+            <span>17 May, Sat</span>
+          </div>
+
+          <div
+            class="booking-info"
+            style="
+              background-color: #f9f9f9;
+              padding: 10px 15px;
+              border-radius: 5px;
+              margin-bottom: 20px;
+              display: flex;
+              align-items: center;
+            "
+          >
+            <span
+              class="booking-count"
+              style="
+                color: #ff3e83;
+                font-weight: bold;
+                margin-right: 10px;
+                font-size: 18px;
+              "
+              >1353</span
+            >
+            <span>Devotees already booked this Puja</span>
+          </div>
+
+          <p class="start-info" style="margin-bottom: 10px; color: #666">
+            Puja starts in
+          </p>
+
+          <div
+            class="countdown"
+            style="
+              display: flex;
+              justify-content: space-around;
+              margin-bottom: 20px;
+            "
+          >
+            <div
+              class="countdown-item"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #701c89;
+                font-size: 16px;
+              "
+            >
+              <span
+                class="countdown-value"
+                id="days"
+                style="font-size: 36px; font-weight: bold; color: #ff3e83"
+                >00</span
+              >
+              <span>Day</span>
+            </div>
+            <span
+              class="countdown-separator"
+              style="font-size: 36px; color: #701c89; margin-top: -5px"
+              >:</span
+            >
+            <div
+              class="countdown-item"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #701c89;
+                font-size: 16px;
+              "
+            >
+              <span
+                class="countdown-value"
+                id="hours"
+                style="font-size: 36px; font-weight: bold; color: #ff3e83"
+                >09</span
+              >
+              <span>Hrs</span>
+            </div>
+            <span
+              class="countdown-separator"
+              style="font-size: 36px; color: #701c89; margin-top: -5px"
+              >:</span
+            >
+            <div
+              class="countdown-item"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #701c89;
+                font-size: 16px;
+              "
+            >
+              <span
+                class="countdown-value"
+                id="minutes"
+                style="font-size: 36px; font-weight: bold; color: #ff3e83"
+                >53</span
+              >
+              <span>Min</span>
+            </div>
+            <span
+              class="countdown-separator"
+              style="font-size: 36px; color: #701c89; margin-top: -5px"
+              >:</span
+            >
+            <div
+              class="countdown-item"
+              style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #701c89;
+                font-size: 16px;
+              "
+            >
+              <span
+                class="countdown-value"
+                id="seconds"
+                style="font-size: 36px; font-weight: bold; color: #ff3e83"
+                >55</span
+              >
+              <span>Sec</span>
+            </div>
+          </div>
+
+          <div
+            class="progress-bar"
+            style="
+              height: 4px;
+              background-color: #e0e0e0;
+              border-radius: 2px;
+              margin-bottom: 20px;
+              position: relative;
+            "
+          >
+            <div
+              class="progress"
+              style="
+                height: 100%;
+                width: 70%;
+                background: linear-gradient(to right, #2ecc71, #27ae60);
+                border-radius: 2px;
+              "
+            ></div>
+          </div>
+
+          <div
+            class="share-button"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 16px;
+              color: #666;
+              margin-left: auto;
+            "
+          >
+            <span
+              class="share-icon"
+              style="margin-right: 5px; color: #25d366; font-size: 24px"
+              >📱</span
+            >
+            <span>Share</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div
+      style="
+        background-color: #663399;
+        padding: 15px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+        width: 100%;
+      "
+    >
+      <a
+        href="#benefits"
+        style="
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 5px;
+        "
+        >Benefits of Puja</a
+      >
+      <a
+        href="#temple"
+        style="
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 5px;
+        "
+        >About Temple</a
+      >
+      <a
+        href="#puja"
+        style="
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+          font-weight: bold;
+          margin: 5px;
+        "
+        >About Puja</a
+      >
+    </div>
+
+    <!-- Main Content -->
+    <div style="padding: 20px; max-width: 1200px; margin: 0 auto">
+      <h1
+        style="
+          color: #333;
+          font-size: 24px;
+          margin-bottom: 20px;
+          font-weight: bold;
+          position: relative;
+          padding-bottom: 5px;
+        "
+      >
+        Benefits of Puja
+        <span
+          style="
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 150px;
+            height: 3px;
+            background-color: #663399;
+            display: block;
+          "
+        ></span>
+      </h1>
+
+      <!-- Benefit Item 1 -->
+      <div style="margin-bottom: 20px">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+          "
+        >
+          <span style="color: #663399; margin-right: 10px; font-size: 14px"
+            >▶</span
+          >
+          Good Health and Long Life
+        </div>
+        <p style="color: #777; line-height: 1.5; margin-left: 24px">
+          The Siddh Shri Hanuman Mahayajna and Raksha Jhadha are highly
+          beneficial for good health and longevity. With the blessings of Lord
+          Hanuman, one can attain happiness, prosperity, and a long life.
+        </p>
+      </div>
+
+      <!-- Benefit Item 2 -->
+      <div style="margin-bottom: 20px">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+          "
+        >
+          <span style="color: #663399; margin-right: 10px; font-size: 14px"
+            >▶</span
+          >
+          Relief from serious diseases
+        </div>
+        <p style="color: #777; line-height: 1.5; margin-left: 24px">
+          People who become distressed after treating serious illnesses find
+          relief through the blessings of the Narasimha Hanuman Temple (Patthar
+          Wale Baba) and return to a healthy life.
+        </p>
+      </div>
+
+      <!-- Benefit Item 3 -->
+      <div style="margin-bottom: 20px">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+          "
+        >
+          <span style="color: #663399; margin-right: 10px; font-size: 14px"
+            >▶</span
+          >
+          Dream job and business growth
+        </div>
+        <p style="color: #777; line-height: 1.5; margin-left: 24px">
+          By performing this grand Yagna and ritual at the Narasimha Hanuman
+          Temple, one can achieve their desired job and experience growth in
+          business.
+        </p>
+      </div>
+
+      <!-- Benefit Item 4 -->
+      <div style="margin-bottom: 20px">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+          "
+        >
+          <span style="color: #663399; margin-right: 10px; font-size: 14px"
+            >▶</span
+          >
+          Shielding against misfortunes and harmful energies
+        </div>
+        <p style="color: #777; line-height: 1.5; margin-left: 24px">
+          Hanuman Mahayagya and Raksha Jhaada are very effective remedies to
+          avoid troubles, evil eyes and evil powers. This eliminates all types
+          of negative effects and gives mental peace to the person.
+        </p>
+      </div>
+    </div>
+
+    <div class="container" style="max-width: 1200px; margin: 0 auto">
+      <!-- Temple Section -->
+      <div class="info-section" style="margin-bottom: 40px">
+        <h2
+          class="section-title"
+          style="
+            color: #4a235a;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e74c3c;
+            display: inline-block;
+          "
+        >
+          About Temple
+        </h2>
+        <div
+          class="info-card"
+          style="
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-direction: column;
+          "
+        >
+          <div
+            class="info-image"
+            style="flex: 0 0 100%; max-width: 100%; height: 250px"
+          >
+            <img
+              src="./images/3big.webp"
+              alt="Shri Narasimha Hanuman Temple"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="info-content"
+            style="flex: 0 0 100%; max-width: 100%; padding: 20px"
+          >
+            <p
+              class="info-text"
+              style="color: #666; line-height: 1.6; margin-bottom: 15px"
+            >
+              The Shri Narasimha Hanuman Temple, located in Chandni Chowk,
+              Delhi, is a highly miraculous temple that is around 300 years old.
+              Here, there are idols of Lord Hanuman and Lord Vishnu's
+              incarnation, Narasimha. In Hanuman's Panchmukhi avatar, the fifth
+              face is that of Narasimha. The south-facing Hanuman is referred to
+              as 'Lord Narasimha'. It is believed that this temple holds immense
+              powers of Bajrangbali, which are alive in the Kaliyuga. Millions
+              of devotees come from far and wide to seek the blessings of Lord
+              Hanuman. Every Friday, Saturday, and Sunday, a ritual known as
+              "Jhadda" is performed here. It is said that getting the Jhadda
+              done for nine days ends all kinds of sufferings. Those who have
+              been troubled despite seeking treatment everywhere find relief
+              here through Baba's blessings. Additionally, devotees can submit
+              their requests through the VAMA app. Every wish is fulfilled in
+              this temple.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Puja Section -->
+      <div class="info-section" style="margin-bottom: 40px">
+        <h2
+          class="section-title"
+          style="
+            color: #4a235a;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #e74c3c;
+            display: inline-block;
+          "
+        >
+          About Puja
+        </h2>
+        <div
+          class="info-card"
+          style="
+            display: flex;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-direction: column;
+          "
+        >
+          <div
+            class="info-image"
+            style="flex: 0 0 100%; max-width: 100%; height: 250px"
+          >
+            <img
+              src="./images/1big.webp"
+              alt="Siddh Shri Hanuman Mahayagna and Raksha Jhadda"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+              "
+            />
+          </div>
+          <div
+            class="info-content"
+            style="flex: 0 0 100%; max-width: 100%; padding: 20px"
+          >
+            <p
+              class="info-text"
+              style="color: #666; line-height: 1.6; margin-bottom: 15px"
+            >
+              Temple-Thumbnail The Siddh Shri Hanuman Mahayagna and Raksha
+              Jhadda are used to ward off the evil eye and negative energy. In
+              this process, mantras along with items like lemon, green chilies,
+              black sesame seeds, mustard seeds, and cloves are used to cleanse
+              and eliminate negative forces. If someone in your home is
+              struggling with a serious illness or facing troubles, the evil
+              eye, or the influence of malevolent powers, you should definitely
+              visit the Shri Narasimha Hanuman Mandir (also known as Patthar
+              Wale Baba) in Delhi. The Siddh Shri Hanuman Mahayagna and Raksha
+              Jhadda conducted here are very effective remedies. You don’t even
+              need to travel to Delhi for this; you can perform this Mahayagna
+              from the comfort of your home through the VAMA app. By conducting
+              this Mahayagna in your name and gotra, you can remove the evil
+              eye, family disputes, and other troubles.
+           
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- payment pakage -->
+    <div style="max-width: 1200px; margin: 0 auto">
+      <h1 style="color: #333; font-size: 28px; margin-bottom: 10px">
+        Puja Packages
+      </h1>
+      <p style="color: #666; margin-top: 0; margin-bottom: 20px">
+        Please click on package to select
+      </p>
+      <hr
+        style="
+          border: none;
+          border-top: 2px solid #e83e8c;
+          width: 120px;
+          margin-left: 0;
+          margin-bottom: 30px;
+        "
+      />
+
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-between;
+        "
+      >
+        <!-- Single Package -->
+        <div
+          style="
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f0ff;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h2
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+          >
+            Single
+          </h2>
+          <h3
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 20px;
+            "
+          >
+            ₹901
+          </h3>
+          <p
+            style="
+              text-align: center;
+              color: #666;
+              margin-top: 0;
+              margin-bottom: 20px;
+              font-size: 14px;
+            "
+          >
+            For 1 person
+          </p>
+          <hr
+            style="border: none; border-top: 1px solid #ddd; margin: 20px 0"
+          />
+
+          <div style="margin-bottom: 15px">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 10px;
+              "
+            >
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Puja will be performed by the Pujari Ji with proper
+                procedure, with your Name and Gotra.
+              </p>
+            </div>
+
+            <div style="display: flex; align-items: flex-start">
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Prasad will be sent to your home, and a video of the ritual
+                will be provided.
+              </p>
+            </div>
+          </div>
+
+          <button
+            style="
+              background-color: #6c5ce7;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              padding: 15px;
+              width: 100%;
+              font-size: 16px;
+              cursor: pointer;
+              margin-top: 30px;
+            "
+          >
+            Confirm Package
+          </button>
+        </div>
+
+        <!-- Couple Package -->
+        <div
+          style="
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f0ff;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <div
+            style="
+              background-color: #e83e8c;
+              color: white;
+              position: absolute;
+              top: 0;
+              right: 0;
+              padding: 5px 15px;
+              border-top-right-radius: 10px;
+              font-size: 14px;
+            "
+          >
+            Recommended
+          </div>
+          <h2
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+          >
+            Couple
+          </h2>
+          <h3
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 20px;
+            "
+          >
+            ₹1401
+          </h3>
+          <p
+            style="
+              text-align: center;
+              color: #666;
+              margin-top: 0;
+              margin-bottom: 20px;
+              font-size: 14px;
+            "
+          >
+            Upto 2 people
+          </p>
+          <hr
+            style="border: none; border-top: 1px solid #ddd; margin: 20px 0"
+          />
+
+          <div style="margin-bottom: 15px">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 10px;
+              "
+            >
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Puja will be performed by the Pujari Ji with proper
+                procedure, with the Name and Gotra of both you and your partner.
+              </p>
+            </div>
+
+            <div style="display: flex; align-items: flex-start">
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Prasad will be sent to your home, and a video of the ritual
+                will be provided.
+              </p>
+            </div>
+          </div>
+
+          <button
+            style="
+              background-color: #6c5ce7;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              padding: 15px;
+              width: 100%;
+              font-size: 16px;
+              cursor: pointer;
+              margin-top: 30px;
+            "
+          >
+            Confirm Package
+          </button>
+        </div>
+
+        <!-- Family Package -->
+        <div
+          style="
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8f0ff;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h2
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 10px;
+            "
+          >
+            Family
+          </h2>
+          <h3
+            style="
+              text-align: center;
+              font-size: 24px;
+              margin-top: 0;
+              margin-bottom: 20px;
+            "
+          >
+            ₹1999
+          </h3>
+          <p
+            style="
+              text-align: center;
+              color: #666;
+              margin-top: 0;
+              margin-bottom: 20px;
+              font-size: 14px;
+            "
+          >
+            Upto 6 people
+          </p>
+          <hr
+            style="border: none; border-top: 1px solid #ddd; margin: 20px 0"
+          />
+
+          <div style="margin-bottom: 15px">
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 10px;
+              "
+            >
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Puja will be performed by the Pujari Ji with proper
+                procedure, with the Name and Gotra of your family member.
+              </p>
+            </div>
+
+            <div style="display: flex; align-items: flex-start">
+              <span style="color: #e83e8c; font-size: 18px; margin-right: 10px"
+                >&#9658;</span
+              >
+              <p style="margin: 0; color: #333; font-size: 14px">
+                The Prasad will be sent to your home, and a video of the ritual
+                will be provided.
+              </p>
+            </div>
+          </div>
+
+          <button
+            style="
+              background-color: #6c5ce7;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              padding: 15px;
+              width: 100%;
+              font-size: 16px;
+              cursor: pointer;
+              margin-top: 30px;
+            "
+          >
+            Confirm Package
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Styling with Media Query (JS-style) -->
+    <script>
+      function applyResponsive() {
+        const screenWidth = window.innerWidth;
+
+        const links = document.querySelectorAll("a");
+        const headings = document.querySelectorAll(
+          "h1, div[style*='font-size:18px']"
+        );
+        const texts = document.querySelectorAll("p");
+
+        links.forEach((link) => {
+          link.style.fontSize = screenWidth < 768 ? "16px" : "18px";
+        });
+
+        headings.forEach((head) => {
+          head.style.fontSize = screenWidth < 768 ? "16px" : "18px";
+        });
+
+        texts.forEach((p) => {
+          p.style.fontSize = screenWidth < 768 ? "14px" : "16px";
+        });
+      }
+
+      window.addEventListener("resize", applyResponsive);
+      window.addEventListener("DOMContentLoaded", applyResponsive);
+    </script>
+
+    <style>
+      @media (min-width: 768px) {
+        .event-card {
+          flex-direction: row !important;
+        }
+        .image-gallery {
+          width: 50% !important;
+        }
+        .event-details {
+          width: 50% !important;
+        }
+        .small-images {
+          display: flex !important;
+        }
+        .main-image-container {
+          border-radius: 15px 0 0 0 !important;
+        }
+      }
+    </style>
+
+    <script>
+      // Carousel functionality
+      const images = [
+        "./images/1big.webp",
+        "./images/2big.webp",
+        "./images/3big.webp",
+        "./images/4big.webp",
+      ];
+
+      let currentImageIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      function updateImage() {
+        mainImage.src = images[currentImageIndex];
+        mainImage.alt = `Temple image ${currentImageIndex + 1}`;
+      }
+
+      function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImage();
+      }
+
+      function prevImage() {
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      // Auto slide every 2 seconds
+      let slideInterval = setInterval(nextImage, 2000);
+
+      // Reset interval when manually navigating
+      function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextImage, 2000);
+      }
+
+      prevBtn.addEventListener("click", () => {
+        prevImage();
+        resetInterval();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        nextImage();
+        resetInterval();
+      });
+
+      // Small image thumbnails functionality
+      const smallImages = document.querySelectorAll(".small-image");
+      smallImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          currentImageIndex = index;
+          updateImage();
+          resetInterval();
+        });
+      });
+
+      // Countdown timer functionality
+      function updateCountdown() {
+        // Just for demonstration - this would normally be calculated based on target date
+        const seconds = parseInt(
+          document.getElementById("seconds").textContent
+        );
+        const minutes = parseInt(
+          document.getElementById("minutes").textContent
+        );
+        const hours = parseInt(document.getElementById("hours").textContent);
+        const days = parseInt(document.getElementById("days").textContent);
+
+        let newSeconds = seconds - 1;
+        let newMinutes = minutes;
+        let newHours = hours;
+        let newDays = days;
+
+        if (newSeconds < 0) {
+          newSeconds = 59;
+          newMinutes--;
+        }
+
+        if (newMinutes < 0) {
+          newMinutes = 59;
+          newHours--;
+        }
+
+        if (newHours < 0) {
+          newHours = 23;
+          newDays--;
+        }
+
+        document.getElementById("seconds").textContent = newSeconds
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").textContent = newMinutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("hours").textContent = newHours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("days").textContent = newDays
+          .toString()
+          .padStart(2, "0");
+      }
+
+      // Update countdown every second
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>
