@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Card with Inline CSS</title>
     <style>
+     .book-btn {
+  background: linear-gradient(to right, #4cd964, #2ecc71);
+  color: white;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s ease;
+  width: 100%;         /* 👈 makes the button take full width */
+  max-width: 400px;    /* 👈 optional: limits it on larger screens */
+  box-sizing: border-box;
+}
+
+.book-btn:hover {
+  background: linear-gradient(to right, #2ecc71, #4cd964);
+}
+
       @media (min-width: 769px) {
         .info-card {
           flex-direction: row !important;
@@ -41,6 +61,29 @@
       .read-more:hover {
         text-decoration: underline !important;
       }
+   
+  .header-banner {
+    text-align: center;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-top: 1px solid #ffd700;
+    border-bottom: 1px solid #ffd700;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 15px;
+    animation: colorChange 1s infinite alternate;
+  }
+
+  @keyframes colorChange {
+    0% {
+      background-color: #ffd700; /* Yellow bg */
+      color: black;
+    }
+    100% {
+      background-color: white; /* White bg */
+      color: black;
+    }
+  }
+
     </style>
   </head>
   <body
@@ -222,29 +265,17 @@
             flex-direction: column;
           "
         >
-          <div
-            class="header-banner"
-            style="
-              background: linear-gradient(
-                to right,
-                #ffd700,
-                #ffd700,
-                transparent
-              );
-              color: #333;
-              padding: 10px 15px;
-              font-weight: bold;
-              border-radius: 5px 5px 0 0;
-              margin-bottom: 15px;
-            "
-          >
-            Few Slots Left!
-          </div>
+       <div class="header-banner">
+  Few Slots Left!
+</div>
+
+
+
 
           <h1
             class="event-title"
             style="
-              font-size: 24px;
+              font-size: 39px;
               font-weight: bold;
               color: #333;
               margin-bottom: 15px;
@@ -256,7 +287,7 @@
 
           <p
             class="event-subtitle"
-            style="color: #ff3e83; font-size: 18px; margin-bottom: 15px"
+            style="color: #ff3e83; font-size: 28px; margin-bottom: 15px"
           >
             To overcome the evil eye and serious illness
           </p>
@@ -296,151 +327,88 @@
             <span>17 May, Sat</span>
           </div>
 
-          <div
-            class="booking-info"
-            style="
-              background-color: #f9f9f9;
-              padding: 10px 15px;
-              border-radius: 5px;
-              margin-bottom: 20px;
-              display: flex;
-              align-items: center;
-            "
-          >
-            <span
-              class="booking-count"
-              style="
-                color: #ff3e83;
-                font-weight: bold;
-                margin-right: 10px;
-                font-size: 18px;
-              "
-              >1353</span
-            >
-            <span>Devotees already booked this Puja</span>
-          </div>
+         <div
+  class="booking-info"
+  style="
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ced1d3; /* gray-50 */
+  "
+>
+  <span
+    class="booking-count"
+    style="
+      color: #ff3e83;
+      font-weight: bold;
+      font-size: 18px;
+    "
+  >
+    1353
+  </span>
+  <span
+    style="
+      margin: 0 10px;
+      color: #9ca3af; /* gray-400 for better visibility */
+    "
+  >|</span>
+  <span>Devotees already booked this Puja</span>
+</div>
+
 
           <p class="start-info" style="margin-bottom: 10px; color: #666">
             Puja starts in
           </p>
+<div
+  class="countdown"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* left align */
+    gap: 5px; /* small gap between items */
+    margin-bottom: 20px;
+  "
+>
+  <div
+    class="countdown-item"
+    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
+  >
+    <span class="countdown-value" id="days" style="font-size: 36px; font-weight: bold; color: #ff3e83">00</span>
+    <span>Day</span>
+  </div>
+  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
 
-          <div
-            class="countdown"
-            style="
-              display: flex;
-              justify-content: space-around;
-              margin-bottom: 20px;
-            "
-          >
-            <div
-              class="countdown-item"
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: #701c89;
-                font-size: 16px;
-              "
-            >
-              <span
-                class="countdown-value"
-                id="days"
-                style="font-size: 36px; font-weight: bold; color: #ff3e83"
-                >00</span
-              >
-              <span>Day</span>
-            </div>
-            <span
-              class="countdown-separator"
-              style="font-size: 36px; color: #701c89; margin-top: -5px"
-              >:</span
-            >
-            <div
-              class="countdown-item"
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: #701c89;
-                font-size: 16px;
-              "
-            >
-              <span
-                class="countdown-value"
-                id="hours"
-                style="font-size: 36px; font-weight: bold; color: #ff3e83"
-                >09</span
-              >
-              <span>Hrs</span>
-            </div>
-            <span
-              class="countdown-separator"
-              style="font-size: 36px; color: #701c89; margin-top: -5px"
-              >:</span
-            >
-            <div
-              class="countdown-item"
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: #701c89;
-                font-size: 16px;
-              "
-            >
-              <span
-                class="countdown-value"
-                id="minutes"
-                style="font-size: 36px; font-weight: bold; color: #ff3e83"
-                >53</span
-              >
-              <span>Min</span>
-            </div>
-            <span
-              class="countdown-separator"
-              style="font-size: 36px; color: #701c89; margin-top: -5px"
-              >:</span
-            >
-            <div
-              class="countdown-item"
-              style="
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: #701c89;
-                font-size: 16px;
-              "
-            >
-              <span
-                class="countdown-value"
-                id="seconds"
-                style="font-size: 36px; font-weight: bold; color: #ff3e83"
-                >55</span
-              >
-              <span>Sec</span>
-            </div>
-          </div>
+  <div
+    class="countdown-item"
+    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
+  >
+    <span class="countdown-value" id="hours" style="font-size: 36px; font-weight: bold; color: #ff3e83">09</span>
+    <span>Hrs</span>
+  </div>
+  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
 
-          <div
-            class="progress-bar"
-            style="
-              height: 4px;
-              background-color: #e0e0e0;
-              border-radius: 2px;
-              margin-bottom: 20px;
-              position: relative;
-            "
-          >
-            <div
-              class="progress"
-              style="
-                height: 100%;
-                width: 70%;
-                background: linear-gradient(to right, #2ecc71, #27ae60);
-                border-radius: 2px;
-              "
-            ></div>
-          </div>
+  <div
+    class="countdown-item"
+    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
+  >
+    <span class="countdown-value" id="minutes" style="font-size: 36px; font-weight: bold; color: #ff3e83">53</span>
+    <span>Min</span>
+  </div>
+  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
+
+  <div
+    class="countdown-item"
+    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
+  >
+    <span class="countdown-value" id="seconds" style="font-size: 36px; font-weight: bold; color: #ff3e83">55</span>
+    <span>Sec</span>
+  </div>
+</div>
+
+
+        <button class="book-btn">Book Puja</button>
 
           <div
             class="share-button"
