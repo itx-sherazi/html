@@ -85,6 +85,120 @@
   }
 
     </style>
+    <style>
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 4px;
+      position: relative;
+    }
+    
+  
+    
+    .carousel-wrapper {
+      position: relative;
+      overflow: hidden;
+      padding: 0 4px;
+    }
+    
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    .testimonial {
+      min-width: calc(33.33% - 20px);
+      margin: 0 10px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: all 0.3s ease;
+      height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .video-testimonial {
+      height: 260px;
+    }
+    
+    .testimonial iframe {
+      width: 100%;
+      height: 160px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+    }
+    
+    .testimonial .text {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    
+    .testimonial .name {
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .testimonial .location {
+      font-size: 13px;
+      color: #777;
+    }
+    
+    .control-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      color: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      z-index: 10;
+      border: none;
+    }
+    
+    .prev-btn {
+      left: 4px;
+    }
+    
+    .next-btn {
+      right: 4px;
+    }
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+      .testimonial {
+        min-width: calc(50% - 20px);
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .testimonial {
+        min-width: calc(100% - 20px);
+        height: auto;
+        min-height: 180px;
+      }
+      
+      .video-testimonial {
+        height: auto;
+        min-height: 240px;
+      }
+    }
+  </style>
   </head>
   <body
     style="
@@ -96,337 +210,433 @@
     "
   >
     <!-- //herosection -->
+ <div
+  class="container"
+  style="
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+  "
+>
+  <div
+    class="event-card"
+    style="
+      display: flex;
+      flex-direction: column;
+      border-radius: 15px;
+      overflow: hidden;
+    "
+  >
+    <!-- Top section with image gallery -->
     <div
-      class="container"
-      style="max-width: 1200px; margin: 0 auto; padding: 20px"
+      class="image-gallery"
+      style="width: 100%; position: relative; overflow: hidden"
     >
       <div
-        class="event-card"
+        class="main-image-container"
         style="
-          display: flex;
-          flex-direction: column;
-          background-color: white;
-          border-radius: 15px;
+          width: 100%;
+          position: relative;
           overflow: hidden;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          border-radius: 15px 15px 0 0;
         "
       >
-        <!-- Top section with image gallery -->
-        <div
-          class="image-gallery"
-          style="width: 100%; position: relative; overflow: hidden"
-        >
-          <div
-            class="main-image-container"
-            style="
-              width: 100%;
-              position: relative;
-              overflow: hidden;
-              border-radius: 15px 15px 0 0;
-            "
-          >
-            <img
-              src="/api/placeholder/600/400"
-              alt="Temple"
-              class="main-image"
-              id="mainImage"
-              style="
-                width: 100%;
-                height: auto;
-                max-height: 400px;
-                object-fit: cover;
-              "
-            />
-
-            <div
-              class="carousel-nav"
-              style="
-                position: absolute;
-                top: 50%;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                transform: translateY(-50%);
-              "
-            >
-              <button
-                class="carousel-btn"
-                id="prevBtn"
-                style="
-                  background-color: rgba(255, 255, 255, 0.5);
-                  border: none;
-                  padding: 10px;
-                  font-size: 20px;
-                  border-radius: 50%;
-                  cursor: pointer;
-                  margin: 0 10px;
-                  width: 40px;
-                  height: 40px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                ❮
-              </button>
-              <button
-                class="carousel-btn"
-                id="nextBtn"
-                style="
-                  background-color: rgba(255, 255, 255, 0.5);
-                  border: none;
-                  padding: 10px;
-                  font-size: 20px;
-                  border-radius: 50%;
-                  cursor: pointer;
-                  margin: 0 10px;
-                  width: 40px;
-                  height: 40px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                "
-              >
-                ❯
-              </button>
-            </div>
-          </div>
-          <div
-            class="small-images"
-            style="
-              display: none;
-              justify-content: space-around;
-              padding: 10px 0;
-              background-color: #48134d;
-            "
-          >
-            <img
-              src="./images/1big.webp"
-              alt="Temple thumbnail 1"
-              class="small-image"
-              style="
-                width: 80px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 2px solid transparent;
-              "
-            />
-            <img
-              src="./images/2big.webp"
-              alt="Temple thumbnail 2"
-              class="small-image"
-              style="
-                width: 80px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 2px solid transparent;
-              "
-            />
-            <img
-              src="./images/3big.webp"
-              alt="Temple thumbnail 3"
-              class="small-image"
-              style="
-                width: 80px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 2px solid transparent;
-              "
-            />
-            <img
-              src="./images/4big.webp"
-              alt="Temple thumbnail 4"
-              class="small-image"
-              style="
-                width: 80px;
-                height: 60px;
-                object-fit: cover;
-                border-radius: 5px;
-                cursor: pointer;
-                border: 2px solid transparent;
-              "
-            />
-          </div>
-        </div>
-
-        <!-- Bottom section with event details -->
-        <div
-          class="event-details"
+        <img
+          src="/api/placeholder/600/400"
+          alt="Temple"
+          class="main-image"
+          id="mainImage"
           style="
             width: 100%;
-            padding: 20px;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+          "
+        />
+
+        <div
+          class="carousel-nav"
+          style="
+            position: absolute;
+            top: 50%;
+            width: 100%;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+            box-sizing: border-box;
           "
         >
-       <div class="header-banner">
-  Few Slots Left!
-</div>
-
-
-
-
-          <h1
-            class="event-title"
+          <button
+            class="carousel-btn"
+            id="prevBtn"
             style="
-              font-size: 39px;
-              font-weight: bold;
-              color: #333;
-              margin-bottom: 15px;
-              line-height: 1.3;
-            "
-          >
-            Nazar Dosha Mahasuraksha Hanuman Jhada Aur Mahayagya
-          </h1>
-
-          <p
-            class="event-subtitle"
-            style="color: #ff3e83; font-size: 28px; margin-bottom: 15px"
-          >
-            To overcome the evil eye and serious illness
-          </p>
-
-          <div
-            class="temple-info"
-            style="
-              display: flex;
-              align-items: center;
-              margin-bottom: 15px;
-              font-size: 16px;
-              color: #666;
-            "
-          >
-            <span class="temple-icon" style="margin-right: 10px; color: #888"
-              >🛕</span
-            >
-            <span
-              >Narasimha Hanuman Temple (Pathar Wale Baba), Chandni Chowk,
-              Delhi</span
-            >
-          </div>
-
-          <div
-            class="date-info"
-            style="
-              display: flex;
-              align-items: center;
-              margin-bottom: 15px;
-              font-size: 16px;
-              color: #666;
-            "
-          >
-            <span class="temple-icon" style="margin-right: 10px; color: #888"
-              >📅</span
-            >
-            <span>17 May, Sat</span>
-          </div>
-
-         <div
-  class="booking-info"
-  style="
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    border-top: 1px solid #ced1d3; /* gray-50 */
-  "
->
-  <span
-    class="booking-count"
-    style="
-      color: #ff3e83;
-      font-weight: bold;
-      font-size: 18px;
-    "
-  >
-    1353
-  </span>
-  <span
-    style="
-      margin: 0 10px;
-      color: #9ca3af; /* gray-400 for better visibility */
-    "
-  >|</span>
-  <span>Devotees already booked this Puja</span>
-</div>
-
-
-          <p class="start-info" style="margin-bottom: 10px; color: #666">
-            Puja starts in
-          </p>
-<div
-  class="countdown"
-  style="
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* left align */
-    gap: 5px; /* small gap between items */
-    margin-bottom: 20px;
-  "
->
-  <div
-    class="countdown-item"
-    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
-  >
-    <span class="countdown-value" id="days" style="font-size: 36px; font-weight: bold; color: #ff3e83">00</span>
-    <span>Day</span>
-  </div>
-  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
-
-  <div
-    class="countdown-item"
-    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
-  >
-    <span class="countdown-value" id="hours" style="font-size: 36px; font-weight: bold; color: #ff3e83">09</span>
-    <span>Hrs</span>
-  </div>
-  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
-
-  <div
-    class="countdown-item"
-    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
-  >
-    <span class="countdown-value" id="minutes" style="font-size: 36px; font-weight: bold; color: #ff3e83">53</span>
-    <span>Min</span>
-  </div>
-  <span class="countdown-separator" style="font-size: 36px; color: #701c89;">:</span>
-
-  <div
-    class="countdown-item"
-    style="display: flex; flex-direction: column; align-items: center; color: #701c89; font-size: 16px;"
-  >
-    <span class="countdown-value" id="seconds" style="font-size: 36px; font-weight: bold; color: #ff3e83">55</span>
-    <span>Sec</span>
-  </div>
-</div>
-
-
-        <button class="book-btn">Book Puja</button>
-
-          <div
-            class="share-button"
-            style="
+              background-color: rgba(255, 255, 255, 0.5);
+              border: none;
+              padding: 10px;
+              font-size: clamp(16px, 2vw, 20px);
+              border-radius: 50%;
+              cursor: pointer;
+              width: clamp(30px, 8vw, 40px);
+              height: clamp(30px, 8vw, 40px);
               display: flex;
               align-items: center;
               justify-content: center;
-              font-size: 16px;
-              color: #666;
-              margin-left: auto;
             "
           >
-            
-            
-          </div>
+            ❮
+          </button>
+          <button
+            class="carousel-btn"
+            id="nextBtn"
+            style="
+              background-color: rgba(255, 255, 255, 0.5);
+              border: none;
+              padding: 10px;
+              font-size: clamp(16px, 2vw, 20px);
+              border-radius: 50%;
+              cursor: pointer;
+              width: clamp(30px, 8vw, 40px);
+              height: clamp(30px, 8vw, 40px);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            "
+          >
+            ❯
+          </button>
         </div>
       </div>
+      <div
+        class="small-images"
+        style="
+          display: none;
+          justify-content: space-around;
+          padding: 10px 0;
+          background-color: #48134d;
+        "
+      >
+        <img
+          src="./images/1big.webp"
+          alt="Temple thumbnail 1"
+          class="small-image"
+          style="
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+          "
+        />
+        <img
+          src="./images/2big.webp"
+          alt="Temple thumbnail 2"
+          class="small-image"
+          style="
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+          "
+        />
+        <img
+          src="./images/3big.webp"
+          alt="Temple thumbnail 3"
+          class="small-image"
+          style="
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+          "
+        />
+        <img
+          src="./images/4big.webp"
+          alt="Temple thumbnail 4"
+          class="small-image"
+          style="
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+          "
+        />
+      </div>
     </div>
+
+    <!-- Bottom section with event details -->
+    <div
+      class="event-details"
+      style="
+        width: 100%;
+        padding: clamp(15px, 3vw, 20px);
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      "
+    >
+      <div class="header-banner">Few Slots Left!</div>
+
+      <h1
+        class="event-title"
+        style="
+          font-size: clamp(24px, 4vw, 39px);
+          font-weight: bold;
+          color: #333;
+          margin-bottom: clamp(10px, 2vw, 15px);
+          line-height: 1.3;
+        "
+      >
+        Nazar Dosha Mahasuraksha Hanuman Jhada Aur Mahayagya
+      </h1>
+
+      <p
+        class="event-subtitle"
+        style="
+          color: #ff3e83;
+          font-size: clamp(18px, 3vw, 28px);
+          margin-bottom: clamp(10px, 2vw, 15px);
+        "
+      >
+        To overcome the evil eye and serious illness
+      </p>
+
+      <div
+        class="temple-info"
+        style="
+          display: flex;
+          align-items: center;
+          margin-bottom: clamp(10px, 2vw, 15px);
+          font-size: clamp(14px, 2vw, 16px);
+          color: #666;
+        "
+      >
+        <span class="temple-icon" style="margin-right: 10px; color: #888"
+          >🛕</span
+        >
+        <span
+          >Narasimha Hanuman Temple (Pathar Wale Baba), Chandni Chowk,
+          Delhi</span
+        >
+      </div>
+
+      <div
+        class="date-info"
+        style="
+          display: flex;
+          align-items: center;
+          margin-bottom: clamp(10px, 2vw, 15px);
+          font-size: clamp(14px, 2vw, 16px);
+          color: #666;
+        "
+      >
+        <span class="temple-icon" style="margin-right: 10px; color: #888"
+          >📅</span
+        >
+        <span>17 May, Sat</span>
+      </div>
+
+      <div
+        class="booking-info"
+        style="
+          padding: clamp(8px, 2vw, 10px) clamp(10px, 3vw, 15px);
+          border-radius: 5px;
+          margin-bottom: clamp(15px, 3vw, 20px);
+          display: flex;
+          align-items: center;
+          border-top: 1px solid #ced1d3;
+          font-size: clamp(14px, 2vw, 16px);
+        "
+      >
+        <span
+          class="booking-count"
+          style="
+            color: #ff3e83;
+            font-weight: bold;
+            font-size: clamp(16px, 2.5vw, 18px);
+          "
+        >
+          1353
+        </span>
+        <span
+          style="
+            margin: 0 clamp(5px, 2vw, 10px);
+            color: #9ca3af;
+          "
+          >|</span
+        >
+        <span>Devotees already booked this Puja</span>
+      </div>
+
+      <p
+        class="start-info"
+        style="
+          margin-bottom: clamp(8px, 2vw, 10px);
+          color: #666;
+          font-size: clamp(14px, 2vw, 16px);
+        "
+      >
+        Puja starts in
+      </p>
+      <div
+        class="countdown"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: clamp(3px, 1vw, 5px);
+          margin-bottom: clamp(15px, 3vw, 20px);
+        "
+      >
+        <div
+          class="countdown-item"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #701c89;
+            font-size: clamp(14px, 2vw, 16px);
+          "
+        >
+          <span
+            class="countdown-value"
+            id="days"
+            style="
+              font-size: clamp(24px, 5vw, 36px);
+              font-weight: bold;
+              color: #ff3e83;
+            "
+            >00</span
+          >
+          <span>Day</span>
+        </div>
+        <span
+          class="countdown-separator"
+          style="font-size: clamp(24px, 5vw, 36px); color: #701c89;"
+          >:</span
+        >
+
+        <div
+          class="countdown-item"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #701c89;
+            font-size: clamp(14px, 2vw, 16px);
+          "
+        >
+          <span
+            class="countdown-value"
+            id="hours"
+            style="
+              font-size: clamp(24px, 5vw, 36px);
+              font-weight: bold;
+              color: #ff3e83;
+            "
+            >09</span
+          >
+          <span>Hrs</span>
+        </div>
+        <span
+          class="countdown-separator"
+          style="font-size: clamp(24px, 5vw, 36px); color: #701c89;"
+          >:</span
+        >
+
+        <div
+          class="countdown-item"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #701c89;
+            font-size: clamp(14px, 2vw, 16px);
+          "
+        >
+          <span
+            class="countdown-value"
+            id="minutes"
+            style="
+              font-size: clamp(24px, 5vw, 36px);
+              font-weight: bold;
+              color: #ff3e83;
+            "
+            >53</span
+          >
+          <span>Min</span>
+        </div>
+        <span
+          class="countdown-separator"
+          style="font-size: clamp(24px, 5vw, 36px); color: #701c89;"
+          >:</span
+        >
+
+        <div
+          class="countdown-item"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #701c89;
+            font-size: clamp(14px, 2vw, 16px);
+          "
+        >
+          <span
+            class="countdown-value"
+            id="seconds"
+            style="
+              font-size: clamp(24px, 5vw, 36px);
+              font-weight: bold;
+              color: #ff3e83;
+            "
+            >55</span
+          >
+          <span>Sec</span>
+        </div>
+      </div>
+
+      <button
+        class="book-btn"
+        style="
+          background-color: #ff3e83;
+          color: white;
+          border: none;
+          padding: clamp(12px, 3vw, 15px) 0;
+          font-size: clamp(16px, 3vw, 20px);
+          border-radius: 8px;
+          cursor: pointer;
+          width: 100%;
+          font-weight: bold;
+          margin-bottom: 10px;
+        "
+      >
+        Book Puja
+      </button>
+
+      <div
+        class="share-button"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: clamp(14px, 2vw, 16px);
+          color: #666;
+          margin-left: auto;
+        "
+      ></div>
+    </div>
+  </div>
+</div>
 
     <!-- Navigation Bar -->
     <div
@@ -598,7 +808,7 @@
         </p>
       </div>
     </div>
-
+<!-- About -->
     <div class="container" style="max-width: 1200px; margin: 0 auto">
       <!-- Temple Section -->
       <div class="info-section" style="margin-bottom: 40px">
@@ -1052,6 +1262,537 @@
         </div>
       </div>
     </div>
+    <!-- faq -->
+    <div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box;">
+        <h1 style="
+            color: #333;
+            font-size: clamp(20px, 5vw, 32px);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        ">
+            FAQs
+            <span style="
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 3px;
+                width: 110px;
+                background-color: #C92071;
+            "></span>
+        </h1>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                Why choose VAMA for online Puja booking?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                VAMA offers authentic puja services conducted by experienced pandits, convenient online booking, personalized service based on your specific requirements, and transparent pricing with no hidden charges. Our platform ensures that sacred traditions are maintained while making the booking process simple and accessible from anywhere.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                What is the process after booking an online Puja?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                After booking, you'll receive a confirmation email with all details. Our pandit will contact you to confirm specific requirements. On the scheduled day, the puja will be performed as per Vedic traditions. Post-completion, you'll receive prasad by mail (if included in package) and digital photos/videos of the ceremony.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                Will I receive a recording of the Puja?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                Yes, for pujas performed remotely on your behalf, we provide a digital recording of the ceremony. This recording will be shared with you via email or a secure download link within 48 hours after the completion of the puja. For premium packages, we also offer live streaming options.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                What should I do if I don't know my Gotra?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                If you don't know your Gotra, don't worry. You can proceed with the booking by selecting the "Unknown Gotra" option. Our pandits can perform most pujas with alternative sanctification methods. If you wish to discover your Gotra, we offer consultation services where our learned scholars can help determine it based on your family history.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                What should I do on the day of the Puja?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                On the day of the Puja, we recommend taking a bath before the ceremony starts, wearing clean and preferably traditional attire, and creating a peaceful atmosphere in your home. For remote pujas, you can meditate or chant mantras during the scheduled time. For online interactive pujas, follow the pandit's instructions during the video call.
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden;">
+            <div style="
+                font-size: clamp(14px, 2vw, 18px);
+                color: #333;
+                background-color: white;
+                padding: clamp(12px, 3vw, 20px);
+                cursor: pointer;
+                position: relative;
+                border-left: 5px solid #C92071;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            " onclick="toggleFAQ(this)">
+                What does VAMA offer besides Puja booking?
+                <span style="font-size: 12px; transition: transform 0.3s;">▼</span>
+            </div>
+            <div style="
+                background-color: #f9f9f9;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                padding: 0 clamp(12px, 3vw, 20px);
+                color: #555;
+                line-height: 1.6;
+            ">
+                Besides puja booking, VAMA offers astrological consultations, spiritual counseling, Vastu services, personalized horoscope creation, marriage compatibility analysis, sacred items shopping, religious education through online classes, temple visit arrangements, and festival celebration packages tailored to different regional traditions.
+            </div>
+        </div>
+    </div>
+    <!-- testimonials -->
+
+  <div class="container">
+   <h1 style="text-align: left; margin-bottom: 30px; font-size: 28px; color: #333;">
+  Customers Testimonials
+</h1>
+
+    
+    <div class="carousel-wrapper">
+      <div class="carousel">
+        <!-- Testimonial with YouTube -->
+        <div class="testimonial video-testimonial">
+          <iframe 
+            src="https://www.youtube.com/embed/EFVGXyY2OmI?si=IZ-h0ujb_9cpOI9X"
+            title="YouTube video player" 
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+          <p class="name">Manoj</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial">
+          <p class="text">"Amazing app for all your puja and astro needs. It's user-friendly, efficient, and very helpful. Thanks, VAMA"</p>
+          <p class="name">Vijay Nagpal</p>
+          <p class="location">Kolkata</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial">
+          <p class="text">"This app has transformed my spiritual practice. The daily horoscopes are accurate and the puja recommendations are perfect for my needs."</p>
+          <p class="name">Priya Sharma</p>
+          <p class="location">Mumbai</p>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="testimonial">
+          <p class="text">"The virtual temple feature is incredible. I can perform my daily prayers even when I'm traveling. Highly recommended!"</p>
+          <p class="name">Rahul Verma</p>
+          <p class="location">Delhi</p>
+        </div>
+
+        <!-- Testimonial 5 -->
+        <div class="testimonial">
+          <p class="text">"As an astrology student, I find the detailed planetary information and analysis very useful for my studies."</p>
+          <p class="name">Anjali Patel</p>
+          <p class="location">Ahmedabad</p>
+        </div>
+
+        <!-- Testimonial 6 -->
+        <div class="testimonial">
+          <p class="text">"The customer support is excellent. They helped me set up a special puja for my family within hours."</p>
+          <p class="name">Sanjay Gupta</p>
+          <p class="location">Bangalore</p>
+        </div>
+        
+        <!-- Testimonial 7 -->
+        <div class="testimonial">
+          <p class="text">"The Astrology - Puja, Astro, Mandir App provides a comprehensive platform for astrology enthusiasts, offering detailed horoscopes, personalized puja recommendations, and access to virtual temples."</p>
+          <p class="name">Sumit Kumar</p>
+          <p class="location">Gurugram</p>
+        </div>
+      </div>
+      
+      <button class="control-btn prev-btn">&#8592;</button>
+      <button class="control-btn next-btn">&#8594;</button>
+    </div>
+  </div>
+
+  <!-- help -->
+
+  <div style="max-width: 1200px; margin: 0 auto; padding: 20px 0;">
+    <h2 style="font-size: 24px; font-weight: 700; color: #333; margin-bottom: 15px; position: relative;">
+      Help & Support
+      <span style="content: ''; position: absolute; left: 0; bottom: -5px; width: 120px; height: 3px; background-color: #6a1b9a;"></span>
+    </h2>
+    <p style="font-size: 16px; color: #777; margin-bottom: 20px;">
+      Need assistance? Our team is here to help with your booking.
+    </p>
+    <button style="display: inline-flex; align-items: center; background-color: #6a1b9a; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border: none; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+      <span style="margin-right: 10px; display: flex; align-items: center; justify-content: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </span>
+      Chat with customer support
+    </button>
+  </div>
+
+<!-- footer -->
+
+    <footer style="display: flex; flex-wrap: wrap; padding: 40px 5%; background-color: #e7e7e7; border-top: 1px solid #f0f0f0;">
+        <!-- Logo Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+            <img src="./images/vama-coloured-logo.svg" alt="VAMA Logo" style="max-width: 180px;">
+        </div>
+
+        <!-- Links Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+            <h3 style="color: #999; margin-bottom: 15px; font-size: 18px; font-weight: normal;">Links</h3>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Puja</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Chadhava</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Temples</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Astrology</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">VAMA Mall</a></li>
+            </ul>
+        </div>
+
+        <!-- Help Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+            <h3 style="color: #999; margin-bottom: 15px; font-size: 18px; font-weight: normal;">Help</h3>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Become An Astrologer</a></li>
+            </ul>
+        </div>
+
+        <!-- Documents Section -->
+        <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+            <h3 style="color: #999; margin-bottom: 15px; font-size: 18px; font-weight: normal;">Documents</h3>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Disclaimers</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Privacy Policy</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: #444; text-decoration: none; transition: color 0.3s;">Terms & Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div style="flex: 1.5; min-width: 200px; margin-bottom: 20px;">
+            <h3 style="color: #999; margin-bottom: 15px; font-size: 18px; font-weight: normal;">Get in touch</h3>
+            <p style="color: #444; margin-bottom: 15px;">Follow us on social media and stay updated with the latest information about our services</p>
+          <div style="display: flex; gap: 10px;">
+  <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; text-decoration: none;">
+    <img src="./images/facebookIconblack.svg" alt="Facebook" style="width: 22px; height: 22px;">
+  </a>
+  <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; text-decoration: none;">
+    <img src="./images/YoutubeIconBlack.svg" alt="YouTube" style="width: 22px; height: 22px;">
+  </a>
+  <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; text-decoration: none;">
+    <img src="./images/InstaGramIconBlack.svg" alt="Instagram" style="width: 22px; height: 22px;">
+  </a>
+  <a href="#" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; text-decoration: none;">
+    <img src="./images/TwitterIconBlack.svg" alt="Twitter" style="width: 22px; height: 22px;">
+  </a>
+</div>
+
+        </div>
+
+        <!-- DMCA Section -->
+        <div style="width: 100%; display: flex; justify-content: center; margin: 20px 0;">
+            <img src="./images/dmca-badge-w150-2x1-04.webp" alt="DMCA Protected" style="width: 100px;">
+        </div>
+
+        <!-- Copyright Section -->
+        <div style="width: 100%; text-align: center; color: #444; margin-top: 10px;">
+            2025 VAMA. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Chat Icon -->
+    <!-- <div style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background-color: #8a2be2; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); cursor: pointer; z-index: 1000;">
+        <i class="fas fa-comment-alt" style="color: white; font-size: 24px;"></i>
+    </div> -->
+
+    <script>
+        // JavaScript to handle responsive adjustments
+        function adjustFooter() {
+            const footer = document.querySelector('footer');
+            const footerSections = document.querySelectorAll('footer > div');
+            
+            if (window.innerWidth <= 768) {
+                footer.style.padding = '30px 5%';
+                footerSections.forEach(section => {
+                    if (section.style.flex !== '100%') {
+                        section.style.flex = '100%';
+                        section.style.marginBottom = '30px';
+                    }
+                });
+            } else {
+                footer.style.padding = '40px 5%';
+                // Reset to original flex values
+                footerSections[0].style.flex = '1';
+                footerSections[1].style.flex = '1';
+                footerSections[2].style.flex = '1';
+                footerSections[3].style.flex = '1';
+                footerSections[4].style.flex = '1.5';
+                footerSections.forEach(section => {
+                    section.style.marginBottom = '20px';
+                });
+            }
+            
+            if (window.innerWidth <= 480) {
+                const socialIcons = document.querySelector('[style*="gap: 10px"]');
+                if (socialIcons) {
+                    socialIcons.style.flexWrap = 'wrap';
+                }
+            } else {
+                const socialIcons = document.querySelector('[style*="gap: 10px"]');
+                if (socialIcons) {
+                    socialIcons.style.flexWrap = '';
+                }
+            }
+        }
+        
+        window.addEventListener('load', adjustFooter);
+        window.addEventListener('resize', adjustFooter);
+    </script>
+
+  <script>
+    // Media queries would need to be handled with JavaScript for inline styles
+    function adjustStyles() {
+      const heading = document.querySelector('h2');
+      const underline = heading.querySelector('span');
+      const text = document.querySelector('p');
+      const button = document.querySelector('button');
+      
+      if (window.innerWidth <= 768) {
+        heading.style.fontSize = '22px';
+        underline.style.width = '100px';
+        text.style.fontSize = '15px';
+      }
+      
+      if (window.innerWidth <= 480) {
+        heading.style.fontSize = '20px';
+        underline.style.width = '80px';
+        button.style.padding = '10px 18px';
+        button.style.fontSize = '14px';
+      }
+      
+      if (window.innerWidth > 768) {
+        heading.style.fontSize = '24px';
+        underline.style.width = '120px';
+        text.style.fontSize = '16px';
+        button.style.padding = '12px 20px';
+        button.style.fontSize = '';
+      }
+    }
+    
+    window.addEventListener('load', adjustStyles);
+    window.addEventListener('resize', adjustStyles);
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carousel = document.querySelector('.carousel');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      const testimonials = document.querySelectorAll('.testimonial');
+      
+      let currentIndex = 0;
+      
+      function getVisibleCount() {
+        if (window.innerWidth >= 892) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+      }
+      
+      function updateCarousel() {
+        const visibleCount = getVisibleCount();
+        const itemWidth = 100 / visibleCount;
+        
+        // Set width for each testimonial
+        testimonials.forEach(item => {
+          item.style.minWidth = `calc(${itemWidth}% - 20px)`;
+        });
+        
+        // Calculate the transform value
+        const transformValue = (currentIndex * itemWidth);
+        carousel.style.transform = `translateX(-${transformValue}%)`;
+        
+        // Update button states
+        prevBtn.style.opacity = currentIndex === 0 ? '0.5' : '1';
+        const maxIndex = testimonials.length - visibleCount;
+        nextBtn.style.opacity = currentIndex >= maxIndex ? '0.5' : '1';
+      }
+      
+      prevBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      
+      nextBtn.addEventListener('click', function() {
+        const visibleCount = getVisibleCount();
+        const maxIndex = testimonials.length - visibleCount;
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      
+      // Initialize
+      window.addEventListener('resize', updateCarousel);
+      updateCarousel();
+    });
+  </script>
+
+
+
+
+    <script>
+        function toggleFAQ(element) {
+            const parent = element.parentElement;
+            const answer = element.nextElementSibling;
+            
+            // Close all other FAQ answers first
+            document.querySelectorAll('[onclick="toggleFAQ(this)"]').forEach(question => {
+                if (question !== element) {
+                    question.nextElementSibling.style.maxHeight = '0';
+                    question.nextElementSibling.style.padding = '0 ' + window.getComputedStyle(question).paddingLeft;
+                    question.querySelector('span').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            if (answer.style.maxHeight === '0px' || !answer.style.maxHeight) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                answer.style.padding = window.getComputedStyle(element).paddingLeft;
+                element.querySelector('span').style.transform = 'rotate(180deg)';
+            } else {
+                answer.style.maxHeight = '0';
+                answer.style.padding = '0 ' + window.getComputedStyle(element).paddingLeft;
+                element.querySelector('span').style.transform = 'rotate(0deg)';
+            }
+        }
+    </script>
+
 
     <!-- Responsive Styling with Media Query (JS-style) -->
     <script>
